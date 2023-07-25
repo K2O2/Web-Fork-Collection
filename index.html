@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kivitos MetroPolitan Railway</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+        <header class="header">
+            <div class="title">
+                <div class="logo">
+                    <svg 
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="5.503cm" height="3.422cm">
+                        <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
+                        d="M0.1000,-0.000 L-0.000,96.1000 L21.1000,96.1000 L21.1000,48.1000 L59.1000,95.1000 L88.000,95.1000 L50.1000,47.1000 L72.1000,20.1000 L125.1000,20.1000 C125.1000,20.1000 133.094,22.156 133.000,31.000 C132.906,39.844 125.1000,39.1000 125.1000,39.1000 L82.1000,39.1000 L126.1000,95.1000 L154.1000,96.1000 L125.1000,59.1000 C125.1000,59.1000 156.253,61.249 155.1000,31.1000 C155.750,3.083 128.1000,-0.000 128.1000,-0.000 L59.1000,-0.000 L21.1000,46.1000 L21.1000,-0.000 L0.1000,-0.000 Z"/>
+                    </svg>
+                </div>
+                <div class="words">
+                    <div>KIVITOS METROPOLITAN RAILWAY</div>
+                    <div>奇 普 托 斯 都 市 鐵 道</div>
+                </div>   
+            </div>
+            <div class="station">
+                <div>中央區役所</div>
+                <div>Central Distinct Government</div>
+            </div>
+            <div class="time"></div>
+        </header>
+        <div class="container">
+            <div class="video">
+                <img src="./src/img/00137.jpg" alt="#">
+            </div>
+            <div class="info">
+                <div class="this">
+                    <div class="up">
+                        <div class="title">
+                            本班车 This Train
+                        </div>
+                        <div>
+                            <div class="direction">
+                                <div>阿拜多斯中央區方向</div>
+                                <div>To Abydos Central Area</div>
+                            </div>
+                            <div class="tag">
+                                <span>普通車 Local</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="down">
+                        <div class="minute">1</div>
+                        <div>
+                            <div>分鐘后到達</div>
+                            <div>Arriving in <span class="minute">1</span> minute</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="next">
+                    <div class="bk"></div>
+                    <div>
+                        <div>下班車 Next Train</div>
+                        <div>
+                            <div class="direction">
+                                <div>阿拜多斯中央區方向</div>
+                                <div>To Abydos Central Area</div>
+                            </div>
+                            <div class="tag">
+                                <span>快車 Express</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="minuteN">6</div>
+                            <div>分鐘后到達</div>
+                            <div>&nbsp;&nbsp;Arriving in&nbsp;<span class="minuteN">6</span>&nbsp;minute</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="roll">
+                注意：****中央线因沙尘暴运营暂时中断，预定15:00恢复运营。
+            </div>
+        </footer>
+    </div>
+<script>
+    const timepad = document.querySelector('.time')
+
+    function getCurrentTime() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+
+    // 将小时和分钟转换为两位数格式
+    var formattedHours = padZero(hours, 2);
+    var formattedMinutes = padZero(minutes, 2);
+
+    // 返回拼接后的时间字符串
+    return formattedHours + ":" + formattedMinutes;
+    }
+
+    // 辅助函数：将数字转换为指定长度的字符串，并在不足长度时补0
+    function padZero(num, length) {
+    var str = String(num);
+    while (str.length < length) {
+        str = '0' + str;
+    }
+    return str;
+    }
+
+    // 使用示例
+    var currentTime = getCurrentTime();
+    //设置定时器，每秒更新
+    setInterval(()=>{
+        timepad.textContent = getCurrentTime();
+    },1000)
+</script>
+</body>
+</html>
